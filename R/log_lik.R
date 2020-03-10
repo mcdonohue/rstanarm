@@ -52,7 +52,8 @@
 #'     family = poisson(link = "log"),
 #'     prior = normal(0, 2.5),
 #'     prior_intercept = normal(0, 10),
-#'     iter = 500 # to speed up example
+#'     iter = 500, # just to speed up example,
+#'     refresh = 0
 #'  )
 #'  ll <- log_lik(fit)
 #'  dim(ll)
@@ -68,9 +69,7 @@
 #' }
 #'
 log_lik.stanreg <- function(object, newdata = NULL, offset = NULL, ...) {
-  if (!used.sampling(object))
-    STOP_sampling_only("Pointwise log-likelihood matrix")
-  newdata <- validate_newdata(newdata)
+  newdata <- validate_newdata(object, newdata, m = NULL)
   calling_fun <- as.character(sys.call(-1))[1]
   dots <- list(...)
   if (is.stanmvreg(object)) {
@@ -83,6 +82,7 @@ log_lik.stanreg <- function(object, newdata = NULL, offset = NULL, ...) {
     m <- NULL
   }
   
+  newdata <- validate_newdata(object, newdata = newdata, m = m)
   args <- ll_args.stanreg(object, newdata = newdata, offset = offset, 
                           reloo_or_kfold = calling_fun %in% c("kfold", "reloo"), 
                           ...)

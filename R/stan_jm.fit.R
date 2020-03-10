@@ -641,13 +641,13 @@ stan_jm.fit <- function(formulaLong = NULL, dataLong = NULL, formulaEvent = NULL
     # - obtaining initial values for joint model parameters
     # - obtaining appropriate scaling for priors on association parameters
     vbdots <- list(...)
-    dropargs <- c("chains", "cores", "iter", "refresh", "test_grad", "control")
+    dropargs <- c("chains", "cores", "iter", "refresh", "thin", "test_grad", "control")
     for (i in dropargs) 
       vbdots[[i]] <- NULL
     vbpars <- pars_to_monitor(standata, is_jm = FALSE)
     vbargs <- c(list(stanmodels$mvmer, pars = vbpars, data = standata, 
                      algorithm = "meanfield"), vbdots)
-    utils::capture.output(init_fit <- do.call(rstan::vb, vbargs))
+    utils::capture.output(init_fit <- suppressWarnings(do.call(rstan::vb, vbargs)))
     init_new_nms <- c(y_intercept_nms, y_beta_nms,
                       if (length(standata$q)) c(paste0("b[", b_nms, "]")),
                       y_aux_nms, paste0("Sigma[", Sigma_nms, "]"),

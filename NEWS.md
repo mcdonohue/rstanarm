@@ -1,3 +1,57 @@
+# rstanarm 2.19.3
+
+### Bug fixes
+
+* Allow the vignettes to knit on platforms that do not support version 2 of RMarkdown
+
+# rstanarm 2.19.2
+
+### Bug fixes
+
+* src/Makevars{.win} now uses a more robust way to find StanHeaders
+
+* Fixed bug where `ranef()` and `coef()` methods for `glmer`-style models 
+printed the wrong output for certain combinations of varying intercepts
+and slopes.
+
+* Fixed a bug where `posterior_predict()` failed for `stan_glmer()` models 
+estimated with `family = mgcv::betar`.
+
+* Fixed bug in `bayes_R2()` for bernoulli models. (Thanks to @mcol)
+
+* `loo_R2()` can now be called on the same fitted model object multiple times
+with identical (not just up to rng noise) results. (Thanks to @mcol)
+
+### New features and improvements
+
+* New vignette on doing MRP using rstanarm. (Thanks to @lauken13)
+
+* 4x speedup for most GLMs (`stan_glm()`) and GAMs (`stan_gamm4()` without
+`random` argument). This comes from using Stan's new compound `_glm` functions
+(`normal_id_glm`, `bernoulli_logit_glm`, `poisson_log_glm`,
+`neg_binomial_2_log_glm`) under the hood whenever possible. (Thanks 
+to @avehtari and @VMatthijs)
+
+* `compare_models()` is deprecated in favor of `loo_compare()` to keep up 
+with the loo package ([loo::loo_compare()](http://mc-stan.org/loo/reference/loo_compare))
+
+* The `kfold()` method now has a `cores` argument and parallelizes by fold
+rather than by Markov chain (unless otherwise specified), which should be much
+more efficient when many cores are available.
+
+* For `stan_glm()` with `algorithm='optimizing'`, Pareto smoothed importance
+sampling ([arxiv.org/abs/1507.02646](https://arxiv.org/abs/1507.02646),
+[mc-stan.org/loo/reference/psis.html](https://mc-stan.org/loo/reference/psis.html))
+is now used to diagnose and improve inference (see
+https://avehtari.github.io/RAOS-Examples/BigData/bigdata.html). This also now
+means that we can use PSIS-LOO also when `algorithm='optimizing'`. (Thanks 
+to @avehtari)
+
+* For `stan_glm()` the `"meanfield"` and `"fullrank"` ADVI algorithms also
+include the PSIS diagnostics and adjustments, but so far we have not seen any
+example where these would be better than optimzation or MCMC.
+
+
 # rstanarm 2.18.1
 
 ### Bug fixes

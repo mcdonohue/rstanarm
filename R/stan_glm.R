@@ -95,7 +95,8 @@
 #'   data = mtcars, 
 #'   QR = TRUE,
 #'   # for speed of example only (default is "sampling")
-#'   algorithm = "fullrank" 
+#'   algorithm = "fullrank",
+#'   refresh = 0 
 #'  ) 
 #'                 
 #' plot(fit, prob = 0.5)
@@ -112,6 +113,7 @@
 #'   family = binomial(link = "logit"), 
 #'   prior_intercept = normal(0, 10),
 #'   QR = TRUE,
+#'   refresh = 0,
 #'   # for speed of example only
 #'   chains = 2, iter = 200 
 #' )
@@ -137,6 +139,7 @@
 #'   data = count_data, 
 #'   family = poisson(link="log"),
 #'   prior = normal(0, 2, autoscale = FALSE),
+#'   refresh = 0,
 #'   # for speed of example only
 #'   chains = 2, iter = 250 
 #' ) 
@@ -156,7 +159,8 @@
 #'   lot1 ~ log_u, 
 #'   data = clotting, 
 #'   family = Gamma(link="log"),
-#'   iter = 500 # for speed of example only 
+#'   iter = 500, # for speed of example only
+#'   refresh = 0
 #'  ) 
 #' print(fit4, digits = 2)
 #' 
@@ -171,9 +175,14 @@
 #' 
 #' 
 #' ### Negative binomial regression
-#' fit6 <- stan_glm.nb(Days ~ Sex/(Age + Eth*Lrn), data = MASS::quine, 
-#'                     link = "log", prior_aux = exponential(1.5),
-#'                     chains = 2, iter = 200) # for speed of example only
+#' fit6 <- stan_glm.nb(
+#'   Days ~ Sex/(Age + Eth*Lrn), 
+#'   data = MASS::quine, 
+#'   link = "log", 
+#'   prior_aux = exponential(1.5),
+#'   chains = 2, iter = 200, # for speed of example only
+#'   refresh = 0
+#' ) 
 #' 
 #' prior_summary(fit6)
 #' bayesplot::color_scheme_set("brightblue")
@@ -235,6 +244,11 @@ stan_glm <-
     Y <- cbind(y1, y0 = weights - y1)
     weights <- double(0)
   }
+  
+  if (prior_PD) {
+    # can result in errors (e.g. from poisson) if draws from prior are weird
+    mean_PPD <- FALSE
+  }
 
   stanfit <- stan_glm.fit(
     x = X,
@@ -257,10 +271,10 @@ stan_glm <-
   if (family$family == "Beta regression") {
     family$family <- "beta"
   }
-  
+
   sel <- apply(X, 2L, function(x) !all(x == 1) && length(unique(x)) < 2)
   X <- X[ , !sel, drop = FALSE]  
-  
+
   fit <- nlist(stanfit, algorithm, family, formula, data, offset, weights,
                x = X, y = Y, model = mf,  terms = mt, call, 
                na.action = attr(mf, "na.action"), 
@@ -268,6 +282,13 @@ stan_glm <-
                stan_function = "stan_glm")
   
   out <- stanreg(fit)
+  if (algorithm == "optimizing") {
+    out$log_p <- stanfit$log_p
+    out$log_g <- stanfit$log_g
+    out$psis <- stanfit$psis
+    out$ir_idx <- stanfit$ir_idx
+    out$diagnostics <- stanfit$diagnostics
+  }
   out$compute_mean_PPD <- mean_PPD
   out$xlevels <- .getXlevels(mt, mf)
   if (!x) 
