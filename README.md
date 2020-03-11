@@ -25,7 +25,7 @@ GitHub using the **devtools** package by executing the following in R:
 if (!require(devtools)) {
   install.packages("devtools")
 }
-devtools::install_github("mcdonohue/rstanarm", build_vignettes = FALSE)
+remotes::install_github("mcdonohue/rstanarm", build_vignettes = FALSE)
 ```
 
 ## Reference
