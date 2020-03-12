@@ -19,11 +19,11 @@ To install from GitHub, first make sure that you can install the **rstan**
 package and C++ toolchain by following these
 [instructions](https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started).
 Once **rstan** is successfully installed, you can install **rstanarm** from
-GitHub using the **devtools** package by executing the following in R:
+GitHub using the **remotes** package by executing the following in R:
 
 ```r
-if (!require(devtools)) {
-  install.packages("devtools")
+if (!require(remotes)) {
+  install.packages("remotes")
 }
 remotes::install_github("mcdonohue/rstanarm", build_vignettes = FALSE)
 ```
