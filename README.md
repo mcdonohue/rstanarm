@@ -22,10 +22,10 @@ Once **rstan** is successfully installed, you can install **rstanarm** from
 GitHub using the **remotes** package by executing the following in R:
 
 ```r
-if (!require(remotes)) {
-  install.packages("remotes")
-}
-remotes::install_github("mcdonohue/rstanarm", build_vignettes = FALSE)
+Sys.setenv(MAKEFLAGS = "-j4") # change 4 to however many cores you can/want to use to parallelize install 
+Sys.setenv("R_REMOTES_NO_ERRORS_FROM_WARNINGS" = "true")
+remotes::install_github("mcdonohue/rstanarm", INSTALL_opts = "--no-multiarch", 
+  force = TRUE, build_vignettes = FALSE)
 ```
 
 ## Reference
