@@ -1,6 +1,12 @@
 [<img src="https://raw.githubusercontent.com/stan-dev/logos/master/logo_tm.png" width=100 alt="Stan Logo"/>](http://mc-stan.org)
 
 # Latent Time Joint Mixed Effect Models (LTJMM)
+=======
+<!-- badges: start -->
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/rstanarm?color=blue)](http://cran.r-project.org/package=rstanarm)
+[![Downloads](http://cranlogs.r-pkg.org/badges/rstanarm?color=blue)](http://cran.rstudio.com/package=rstanarm)
+[![R-CMD-check](https://github.com/stan-dev/rstanarm/workflows/R-CMD-check/badge.svg)](https://github.com/stan-dev/rstanarm/actions)
+<!-- badges: end -->
 
 [![Build Status](https://travis-ci.org/mcdonoue/rstanarm.svg?branch=master)](https://travis-ci.org/mcdonoue/rstanarm)[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/rstanarm?color=blue)](http://cran.r-project.org/package=rstanarm)[![Downloads](http://cranlogs.r-pkg.org/badges/rstanarm?color=blue)](http://cran.rstudio.com/package=rstanarm)
 
@@ -29,5 +35,14 @@ remotes::install_github("mcdonohue/rstanarm", INSTALL_opts = "--no-multiarch",
 ```
 
 ## Reference
+=======
+You can switch `build_vignettes` to `TRUE` but it takes a lot longer to install and the 
+vignettes are already separately available from the 
+[Stan website](http://mc-stan.org/rstanarm/articles/index.html) 
+and 
+[CRAN](https://cran.r-project.org/package=rstanarm/vignettes). 
+If installation fails, please let us know by [filing an issue](https://github.com/stan-dev/rstanarm/issues).
+
+### Contributing 
 
 * Li, D., Iddi, S., Thompson, W. K., Donohue, M. C., for ADNI. (2017). Bayesian latent time joint mixed effect models for multicohort longitudinal data. *Statistical methods in medical research*. [https://doi.org/10.1177/0962280217737566](https://doi.org/10.1177/0962280217737566)
