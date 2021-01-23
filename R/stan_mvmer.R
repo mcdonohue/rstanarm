@@ -145,8 +145,6 @@ stan_mvmer <- function(formula, data, family = gaussian, weights,
   
   if (missing(weights)) weights <- NULL
   
-  if (!is.null(weights)) 
-    stop("'weights' are not yet implemented.")
   if (QR)               
     stop("'QR' decomposition is not yet implemented.")
   if (sparse)

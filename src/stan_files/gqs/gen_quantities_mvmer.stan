@@ -69,7 +69,8 @@
       bMat1_colshift += bK1_len[3];
       bMat2_colshift += bK2_len[3];
       yEta4 = evaluate_mu(evaluate_eta(yX4, y4_Z1, y4_Z2, y4_Z1_id, y4_Z2_id, yGamma4, yBeta4,
-                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[4]), 
+                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[4],
+                                       y4_offset), 
                           family[4], link[4]);
       mean_PPD[4] = mean_PPD_rng(yEta4, yAux4, family[4]);
     }
@@ -80,7 +81,8 @@
       bMat1_colshift += bK1_len[4];
       bMat2_colshift += bK2_len[4];
       yEta5 = evaluate_mu(evaluate_eta(yX5, y5_Z1, y5_Z2, y5_Z1_id, y5_Z2_id, yGamma5, yBeta5,
-                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[5]), 
+                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[5],
+                                       y5_offset), 
                           family[5], link[5]);
       mean_PPD[5] = mean_PPD_rng(yEta5, yAux5, family[5]);
     }
@@ -91,7 +93,8 @@
       bMat1_colshift += bK1_len[5];
       bMat2_colshift += bK2_len[5];
       yEta6 = evaluate_mu(evaluate_eta(yX6, y6_Z1, y6_Z2, y6_Z1_id, y6_Z2_id, yGamma6, yBeta6,
-                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[6]), 
+                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[6],
+                                       y6_offset), 
                           family[6], link[6]);
       mean_PPD[6] = mean_PPD_rng(yEta6, yAux6, family[6]);
     }
@@ -102,7 +105,8 @@
       bMat1_colshift += bK1_len[6];
       bMat2_colshift += bK2_len[6];
       yEta7 = evaluate_mu(evaluate_eta(yX7, y7_Z1, y7_Z2, y7_Z1_id, y7_Z2_id, yGamma7, yBeta7,
-                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[7]), 
+                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[7],
+                                       y7_offset), 
                           family[7], link[7]);
       mean_PPD[7] = mean_PPD_rng(yEta7, yAux7, family[7]);
     }
@@ -113,7 +117,8 @@
       bMat1_colshift += bK1_len[7];
       bMat2_colshift += bK2_len[7];
       yEta8 = evaluate_mu(evaluate_eta(yX8, y8_Z1, y8_Z2, y8_Z1_id, y8_Z2_id, yGamma8, yBeta8,
-                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[8]), 
+                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[8],
+                                       y8_offset), 
                           family[8], link[8]);
       mean_PPD[8] = mean_PPD_rng(yEta8, yAux8, family[8]);
     }
@@ -124,7 +129,8 @@
       bMat1_colshift += bK1_len[8];
       bMat2_colshift += bK2_len[8];
       yEta9 = evaluate_mu(evaluate_eta(yX9, y9_Z1, y9_Z2, y9_Z1_id, y9_Z2_id, yGamma9, yBeta9,
-                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[9]), 
+                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[9],
+                                       y9_offset), 
                           family[9], link[9]);
       mean_PPD[9] = mean_PPD_rng(yEta9, yAux9, family[9]);
     }
@@ -135,7 +141,8 @@
       bMat1_colshift += bK1_len[9];
       bMat2_colshift += bK2_len[9];
       yEta10 = evaluate_mu(evaluate_eta(yX10, y10_Z1, y10_Z2, y10_Z1_id, y10_Z2_id, yGamma10, yBeta10,
-                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[10]), 
+                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[10],
+                                       y10_offset), 
                           family[10], link[10]);
       mean_PPD[10] = mean_PPD_rng(yEta10, yAux10, family[10]);
     }
@@ -146,7 +153,8 @@
       bMat1_colshift += bK1_len[10];
       bMat2_colshift += bK2_len[10];
       yEta11 = evaluate_mu(evaluate_eta(yX11, y11_Z1, y11_Z2, y11_Z1_id, y11_Z2_id, yGamma11, yBeta11,
-                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[11]), 
+                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[11],
+                                       y11_offset), 
                           family[11], link[11]);
       mean_PPD[11] = mean_PPD_rng(yEta11, yAux11, family[11]);
     }
@@ -157,7 +165,8 @@
       bMat1_colshift += bK1_len[11];
       bMat2_colshift += bK2_len[11];
       yEta12 = evaluate_mu(evaluate_eta(yX12, y12_Z1, y12_Z2, y12_Z1_id, y12_Z2_id, yGamma12, yBeta12,
-                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[12]), 
+                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[12],
+                                       y12_offset), 
                           family[12], link[12]);
       mean_PPD[12] = mean_PPD_rng(yEta12, yAux12, family[12]);
     }
@@ -168,7 +177,8 @@
       bMat1_colshift += bK1_len[12];
       bMat2_colshift += bK2_len[12];
       yEta13 = evaluate_mu(evaluate_eta(yX13, y13_Z1, y13_Z2, y13_Z1_id, y13_Z2_id, yGamma13, yBeta13,
-                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[13]), 
+                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[13],
+                                       y13_offset), 
                           family[13], link[13]);
       mean_PPD[13] = mean_PPD_rng(yEta13, yAux13, family[13]);
     }
@@ -179,7 +189,8 @@
       bMat1_colshift += bK1_len[13];
       bMat2_colshift += bK2_len[13];
       yEta14 = evaluate_mu(evaluate_eta(yX14, y14_Z1, y14_Z2, y14_Z1_id, y14_Z2_id, yGamma14, yBeta14,
-                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[14]), 
+                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[14],
+                                       y14_offset), 
                           family[14], link[14]);
       mean_PPD[14] = mean_PPD_rng(yEta14, yAux14, family[14]);
     }
@@ -190,7 +201,8 @@
       bMat1_colshift += bK1_len[14];
       bMat2_colshift += bK2_len[14];
       yEta15 = evaluate_mu(evaluate_eta(yX15, y15_Z1, y15_Z2, y15_Z1_id, y15_Z2_id, yGamma15, yBeta15,
-                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[15]), 
+                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[15],
+                                       y15_offset), 
                           family[15], link[15]);
       mean_PPD[15] = mean_PPD_rng(yEta15, yAux15, family[15]);
     }
@@ -201,7 +213,8 @@
       bMat1_colshift += bK1_len[15];
       bMat2_colshift += bK2_len[15];
       yEta16 = evaluate_mu(evaluate_eta(yX16, y16_Z1, y16_Z2, y16_Z1_id, y16_Z2_id, yGamma16, yBeta16,
-                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[16]), 
+                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[16],
+                                       y16_offset), 
                           family[16], link[16]);
       mean_PPD[16] = mean_PPD_rng(yEta16, yAux16, family[16]);
     }
@@ -212,7 +225,8 @@
       bMat1_colshift += bK1_len[16];
       bMat2_colshift += bK2_len[16];
       yEta17 = evaluate_mu(evaluate_eta(yX17, y17_Z1, y17_Z2, y17_Z1_id, y17_Z2_id, yGamma17, yBeta17,
-                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[17]), 
+                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[17],
+                                       y17_offset), 
                           family[17], link[17]);
       mean_PPD[17] = mean_PPD_rng(yEta17, yAux17, family[17]);
     }
@@ -223,7 +237,8 @@
       bMat1_colshift += bK1_len[17];
       bMat2_colshift += bK2_len[17];
       yEta18 = evaluate_mu(evaluate_eta(yX18, y18_Z1, y18_Z2, y18_Z1_id, y18_Z2_id, yGamma18, yBeta18,
-                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[18]), 
+                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[18],
+                                       y18_offset), 
                           family[18], link[18]);
       mean_PPD[18] = mean_PPD_rng(yEta18, yAux18, family[18]);
     }
@@ -234,7 +249,8 @@
       bMat1_colshift += bK1_len[18];
       bMat2_colshift += bK2_len[18];
       yEta19 = evaluate_mu(evaluate_eta(yX19, y19_Z1, y19_Z2, y19_Z1_id, y19_Z2_id, yGamma19, yBeta19,
-                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[19]), 
+                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[19],
+                                       y19_offset), 
                           family[19], link[19]);
       mean_PPD[19] = mean_PPD_rng(yEta19, yAux19, family[19]);
     }
@@ -245,7 +261,8 @@
       bMat1_colshift += bK1_len[19];
       bMat2_colshift += bK2_len[19];
       yEta20 = evaluate_mu(evaluate_eta(yX20, y20_Z1, y20_Z2, y20_Z1_id, y20_Z2_id, yGamma20, yBeta20,
-                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[20]), 
+                                       bMat1, bMat2, bMat1_colshift, bMat2_colshift, intercept_type[20],
+                                       y20_offset), 
                           family[20], link[20]);
       mean_PPD[20] = mean_PPD_rng(yEta20, yAux20, family[20]);
     }

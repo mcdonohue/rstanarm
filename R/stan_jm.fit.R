@@ -59,8 +59,6 @@ stan_jm.fit <- function(formulaLong = NULL, dataLong = NULL, formulaEvent = NULL
   if (missing(lt_var))      lt_var   <- NULL
   if (missing(grp_assoc))   grp_assoc   <- NULL
 
-  if (!is.null(weights)) 
-    stop("'weights' are not yet implemented.")
   if (QR)               
     stop("'QR' decomposition is not yet implemented.")
   if (sparse)
@@ -211,9 +209,30 @@ stan_jm.fit <- function(formulaLong = NULL, dataLong = NULL, formulaEvent = NULL
     has_weights  = as.integer(!all(lapply(weights, is.null))),
     family = fetch_array(y_mod, "family", "mvmer_family"),
     link   = fetch_array(y_mod, "family", "mvmer_link"),
-    weights = as.array(numeric(0)), # not yet implemented
     prior_PD = as.integer(prior_PD)
   )  
+  
+  # weights
+  standata$weights_y1 <- weights[[1]]
+  standata$weights_y2 <- weights[[2]]
+  standata$weights_y3 <- weights[[3]]
+  standata$weights_y4 <- weights[[4]]
+  standata$weights_y5 <- weights[[5]]
+  standata$weights_y6 <- weights[[6]]
+  standata$weights_y7 <- weights[[7]]
+  standata$weights_y8 <- weights[[8]]
+  standata$weights_y9 <- weights[[9]]
+  standata$weights_y10 <- weights[[10]]
+  standata$weights_y11 <- weights[[11]]
+  standata$weights_y12 <- weights[[12]]
+  standata$weights_y13 <- weights[[13]]
+  standata$weights_y14 <- weights[[14]]
+  standata$weights_y15 <- weights[[15]]
+  standata$weights_y16 <- weights[[16]]
+  standata$weights_y17 <- weights[[17]]
+  standata$weights_y18 <- weights[[18]]
+  standata$weights_y19 <- weights[[19]]
+  standata$weights_y20 <- weights[[20]]
   
   # Offset
   Y_offset <- fetch(y_mod, "offset", pad_length = 3)
@@ -222,7 +241,24 @@ stan_jm.fit <- function(formulaLong = NULL, dataLong = NULL, formulaEvent = NULL
   standata$y1_offset <- if (has_offset[1]) Y_offset[[1]] else as.array(integer(0))  
   standata$y2_offset <- if (has_offset[2]) Y_offset[[2]] else as.array(integer(0))  
   standata$y3_offset <- if (has_offset[3]) Y_offset[[3]] else as.array(integer(0)) 
-  
+  standata$y4_offset <- if (has_offset[4]) Y_offset[[4]] else as.array(integer(0))
+  standata$y5_offset <- if (has_offset[5]) Y_offset[[5]] else as.array(integer(0))
+  standata$y6_offset <- if (has_offset[6]) Y_offset[[6]] else as.array(integer(0))
+  standata$y7_offset <- if (has_offset[7]) Y_offset[[7]] else as.array(integer(0))
+  standata$y8_offset <- if (has_offset[8]) Y_offset[[8]] else as.array(integer(0))
+  standata$y9_offset <- if (has_offset[9]) Y_offset[[9]] else as.array(integer(0))
+  standata$y10_offset <- if (has_offset[10]) Y_offset[[10]] else as.array(integer(0))
+  standata$y11_offset <- if (has_offset[11]) Y_offset[[11]] else as.array(integer(0))
+  standata$y12_offset <- if (has_offset[12]) Y_offset[[12]] else as.array(integer(0))
+  standata$y13_offset <- if (has_offset[13]) Y_offset[[13]] else as.array(integer(0))
+  standata$y14_offset <- if (has_offset[14]) Y_offset[[14]] else as.array(integer(0))
+  standata$y15_offset <- if (has_offset[15]) Y_offset[[15]] else as.array(integer(0))
+  standata$y16_offset <- if (has_offset[16]) Y_offset[[16]] else as.array(integer(0))
+  standata$y17_offset <- if (has_offset[17]) Y_offset[[17]] else as.array(integer(0))
+  standata$y18_offset <- if (has_offset[18]) Y_offset[[18]] else as.array(integer(0))
+  standata$y19_offset <- if (has_offset[19]) Y_offset[[19]] else as.array(integer(0))
+  standata$y20_offset <- if (has_offset[20]) Y_offset[[20]] else as.array(integer(0))  
+
   # Dimensions
   standata$has_aux <- 
     fetch_array(y_mod, "has_aux", pad_length = 20)

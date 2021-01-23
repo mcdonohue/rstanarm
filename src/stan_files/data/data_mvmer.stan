@@ -194,3 +194,43 @@
   vector[has_offset[1] ? yNeta[1] : 0] y1_offset;
   vector[has_offset[2] ? yNeta[2] : 0] y2_offset;
   vector[has_offset[3] ? yNeta[3] : 0] y3_offset;
+  vector[has_offset[4] ? yNeta[4] : 0] y4_offset;
+  vector[has_offset[5] ? yNeta[5] : 0] y5_offset;
+  vector[has_offset[6] ? yNeta[6] : 0] y6_offset;
+  vector[has_offset[7] ? yNeta[7] : 0] y7_offset;
+  vector[has_offset[8] ? yNeta[8] : 0] y8_offset;
+  vector[has_offset[9] ? yNeta[9] : 0] y9_offset;
+  vector[has_offset[10] ? yNeta[10] : 0] y10_offset;
+  vector[has_offset[11] ? yNeta[11] : 0] y11_offset;
+  vector[has_offset[12] ? yNeta[12] : 0] y12_offset;
+  vector[has_offset[13] ? yNeta[13] : 0] y13_offset;
+  vector[has_offset[14] ? yNeta[14] : 0] y14_offset;
+  vector[has_offset[15] ? yNeta[15] : 0] y15_offset;
+  vector[has_offset[16] ? yNeta[16] : 0] y16_offset;
+  vector[has_offset[17] ? yNeta[17] : 0] y17_offset;
+  vector[has_offset[18] ? yNeta[18] : 0] y18_offset;
+  vector[has_offset[19] ? yNeta[19] : 0] y19_offset;
+  vector[has_offset[20] ? yNeta[20] : 0] y20_offset;
+  
+  // weights
+  int<lower=0> weights_y1[yNobs[1]];
+  int<lower=0> weights_y2[yNobs[2]];
+  int<lower=0> weights_y3[yNobs[3]];
+  int<lower=0> weights_y4[yNobs[4]];
+  int<lower=0> weights_y5[yNobs[5]];
+  int<lower=0> weights_y6[yNobs[6]];
+  int<lower=0> weights_y7[yNobs[7]];
+  int<lower=0> weights_y8[yNobs[8]];
+  int<lower=0> weights_y9[yNobs[9]];
+  int<lower=0> weights_y10[yNobs[10]];
+  int<lower=0> weights_y11[yNobs[11]];
+  int<lower=0> weights_y12[yNobs[12]];
+  int<lower=0> weights_y13[yNobs[13]];
+  int<lower=0> weights_y14[yNobs[14]];
+  int<lower=0> weights_y15[yNobs[15]];
+  int<lower=0> weights_y16[yNobs[16]];
+  int<lower=0> weights_y17[yNobs[17]];
+  int<lower=0> weights_y18[yNobs[18]];
+  int<lower=0> weights_y19[yNobs[19]];
+  int<lower=0> weights_y20[yNobs[20]];
+  

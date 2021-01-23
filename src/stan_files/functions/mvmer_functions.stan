@@ -241,7 +241,8 @@
   * @return A vector containing the population level parameters (coefficients)
   */
   void glm_lp(vector y_real, int[] y_integer, vector eta, real[] aux,
-              int family, int link, real sum_log_y, vector sqrt_y, vector log_y) {
+              int family, int link, real sum_log_y, vector sqrt_y, 
+              vector log_y, int[] weights) {
     if (family == 1) {  // gaussian
       if (link == 1) target += normal_lpdf(y_real | eta, aux[1]);
       else if (link == 2) target += lognormal_lpdf(y_real | eta, aux[1]);
@@ -259,7 +260,8 @@
       else target += bernoulli_lpmf(y_integer | linkinv_bern(eta, link));
     }
     else if (family == 5) {  // binomial
-      reject("Binomial with >1 trials not allowed.");
+      if (link == 1) target += binomial_logit_lpmf(y_integer | weights, eta);
+      else target += binomial_lpmf(y_integer | weights, linkinv_binom(eta, link));
     }
     else if (family == 6 || family == 8) {  // poisson or poisson-gamma
       if (link == 1) target += poisson_log_lpmf(y_integer | eta);
