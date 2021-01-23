@@ -206,7 +206,7 @@ stan_jm.fit <- function(formulaLong = NULL, dataLong = NULL, formulaEvent = NULL
   
   standata <- list(
     M = as.integer(M), 
-    has_weights  = as.integer(!all(lapply(weights, is.null))),
+    has_weights  = as.integer(!all(unlist(lapply(weights, is.null)))),
     family = fetch_array(y_mod, "family", "mvmer_family"),
     link   = fetch_array(y_mod, "family", "mvmer_link"),
     prior_PD = as.integer(prior_PD)
