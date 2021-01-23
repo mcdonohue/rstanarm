@@ -248,7 +248,10 @@ stan_jm.fit <- function(formulaLong = NULL, dataLong = NULL, formulaEvent = NULL
 
   # weights
   for(i in 1:20){
-    standata[[paste0('weights_y', i)]] <- if (M > i-1) weights[[i]] else as.array(integer(0)) 
+    standata[[paste0('weights_y', i)]] <- 
+      if (M > i-1 & is.null(weights)) rep(0, standata$yNobs[[i]]) else 
+        if (M > i-1) weights[[i]] else 
+          as.array(integer(0)) 
   }
 
   # Population level design matrices
