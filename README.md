@@ -1,7 +1,7 @@
 [<img src="https://raw.githubusercontent.com/stan-dev/logos/master/logo_tm.png" width=100 alt="Stan Logo"/>](http://mc-stan.org)
 
 # Latent Time Joint Mixed Effect Models (LTJMM)
-=======
+
 <!-- badges: start -->
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/rstanarm?color=blue)](http://cran.r-project.org/package=rstanarm)
 [![Downloads](http://cranlogs.r-pkg.org/badges/rstanarm?color=blue)](http://cran.rstudio.com/package=rstanarm)
@@ -35,7 +35,7 @@ remotes::install_github("mcdonohue/rstanarm", INSTALL_opts = "--no-multiarch",
 ```
 
 ## Reference
-=======
+
 You can switch `build_vignettes` to `TRUE` but it takes a lot longer to install and the 
 vignettes are already separately available from the 
 [Stan website](http://mc-stan.org/rstanarm/articles/index.html) 
